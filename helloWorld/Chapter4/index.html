@@ -3,31 +3,35 @@
 
 <head>
     <title>A Simple App</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <header>
     </header>
     <main>
-        <!-- note that we use a dash here for our CSS class name
-               that contains multiple words, that's a CSS convention -->
-        <section class="comment-input">
-            <p>Add Your Comment:</p>
-            <input type="text" />
-            <button>+</button>
-        </section>
-        <section class="comments">
-            <p>This is the first comment!</p>
-            <p>Here's the second one!</p>
-            <p>And this is one more.</p>
-            <p>Here is another one</p>
-        </section>
+        <div class="container">
+            <div class="tabs">
+                <a href=""><span class="active">Newest</span></a>
+                <a href=""><span>Oldest</span></a>
+                <a href=""><span>Add</span></a>
+            </div>
+            <div class="content">
+                <ul>
+                    <li>Get Groceries</li>
+                    <li>Make up some new ToDos</li>
+                    <li>Prep for Monday's class</li>
+                    <li>Answer recruiter emails on LinkedIn</li>
+                    <li>Take Gracie to the park</li>
+                    <li>Finish writing book</li>
+                </ul>
+            </div>
+        </div>
     </main>
     <footer>
     </footer>
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="app.js"></script>
+    <script src="javascripts/app.js"></script>
 </body>
 
 </html>
