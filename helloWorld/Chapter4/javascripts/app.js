@@ -9,7 +9,6 @@ var main = function() {
         "Get Groceries"
     ];
 
-
     $(".tabs a span").toArray().forEach(function(element) {
         $(element).on("click", function() {
             var $element = $(element),
