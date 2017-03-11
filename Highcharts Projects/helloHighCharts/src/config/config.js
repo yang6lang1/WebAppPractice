@@ -3,6 +3,12 @@ requirejs.config({
     baseUrl: 'src/lib',
     paths: {
     	jquery: 'jquery-3.1.1',
-    	app: '../app'
+    	app: '../app',
+    	resources: "../resources",
+    	map: {
+		  '*': {
+		    'css': './css'
+		  }
+		}
     }
 });
