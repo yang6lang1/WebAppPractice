@@ -1,16 +1,9 @@
-requirejs.config({
-	//By default load any module IDs from src/lib
-    baseUrl: 'src/lib',
-    paths: {
-    	jquery: 'jquery-3.1.1'
-    }
-});
-
 requirejs([
-	'jquery'
+	'src/config/config.js'
 ], function(
-	$
+	config
 ) {
-	//jQuery starts
+	// App starts
 	console.log("hello world");
+	requirejs(["app/main"]);
 });
