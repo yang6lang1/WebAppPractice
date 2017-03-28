@@ -1,0 +1,79 @@
+body {
+	position: relative;
+	width: 500px;
+	height: 500px;
+}
+
+html,
+.loadingContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.loadingContainer {
+	background-color: #f8f8f8;
+	border: 1px solid black;
+}
+
+.sap-bi-va-utils-loadingAnimation {
+    /* background: rgba(255, 255, 255, 0.8) data-uri('../images/Loading_indication_v001.gif') no-repeat center center; */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.sap-bi-va-utils-loadingSection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: visible;
+    width: 4em;
+    height: 1em;
+}
+
+.sap-bi-va-utils-loadingIcon-circleOne,
+.sap-bi-va-utils-loadingIcon-circleTwo,
+.sap-bi-va-utils-loadingIcon-circleThree {
+    background: #009de0;
+    font-size: 8px;
+    height: 1em;
+    width: 1em;
+    border-radius: 100%;
+    display: block;
+    float: left;
+    margin: 0;
+    margin-right: 0.25em;
+    position: relative;
+    top: -0.5em;
+    left: -1.75em;
+    text-indent: 1px;
+}
+
+.sap-bi-va-utils-loadingSection.show > div > div {
+    -webkit-animation: sap-bi-va-utils-loadingIcon-animation 1.8s infinite ease-in-out;
+    animation: sap-bi-va-utils-loadingIcon-animation 1.8s infinite ease-in-out;
+}
+
+.sap-bi-va-utils-loadingSection.show .sap-bi-va-utils-loadingIcon-circleOne {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.sap-bi-va-utils-loadingSection.show .sap-bi-va-utils-loadingIcon-circleTwo {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sap-bi-va-utils-loadingIcon-animation {
+    0%, 80%, 100% {
+    	transform: scale(0.4);
+        /* -webkit-transform: scale(0.4); */
+    }
+    40% {
+        transform: scale(1);
+        /* -webkit-transform: scale(1); */
+    }
+}
