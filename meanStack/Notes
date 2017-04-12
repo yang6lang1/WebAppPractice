@@ -1,0 +1,75 @@
+
+Introduction to NO-SQL database
+
+Types of NoSQL database:
+- key-value store
+- Document store (MongoDB)
+- Graph database
+
+MongoDB collections
+- Similar to the idea of table in relational database
+
+MongoDB shell
+- list databases and collections
+- create databases, collections and documents
+- retrieve documents
+
+Mongo shell
+- mongo
+- show dbs
+- use <database name>
+- show collections
+- create a new db: use <new name>
+- create a new collection: db.createCollection(<collection name>)
+- insertion: db.<collectionName>.insert({//expect a json object})
+
+Queries:
+- db.<collectionName>.find()  // show everything in that collection
+- db.<collectionName>.find().pretty()  //format data that's returned
+- Eg:
+db.tech.insert([
+    {
+        name: "express",
+        role: "app server"
+    }, {
+        name: "angular",
+        role: "front end"
+    }, {
+        name: "nodeJS",
+        role: "platform"
+    }
+])
+
+- Querying DB to find documents
+- Modify the data returned: Eg sorting
+- Updating documents
+- Deleting documents
+
+Querying:
+- db.<collectionName>.find({"_id" : ObjectId("58ed990dc037e4d1d4022188")})
+- db.<collectionName>.find({"name_id" : "alex"})
+
+sort:
+-  db.<collectionName>.find(<query>).sort({'name': 1})
+'name' can be any field
+1, ascending; 2, descending
+
+projection:
+- db.tech.find({}, {"name": true})
+{} can be any query
+{"name": true} can be any field true/false
+NOTE:
+- inclusion of '_id' is the only case when we are allowed to have a mix of inclusion and exclusion
+in a single query. in other cases, only inclusion or only exclusion is allowed
+
+update:
+- db.tech.update({"name": "Angular"}, { $set: {"name": "AngularJS"}})
+ ONLY UPDATES FIRST ONE ENCOUNTERED
+
+- db.tech.update({}, { $set: { "language" : "javascript" }, {multi: true}})
+ UPDATE ALL
+
+delete:
+- db.tech.remove({"name": "express"})
+- db.tech.drop() // delete collection
+
