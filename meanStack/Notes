@@ -1,4 +1,16 @@
 
+***************************
+NodeJS
+***************************
+- load module using require
+- expose functionality using module.exports
+
+NodeJS is designed to address I/O scalability, not computational scalability
+
+***************************
+MongoDB
+***************************
+
 Introduction to NO-SQL database
 
 Types of NoSQL database:
@@ -73,3 +85,13 @@ delete:
 - db.tech.remove({"name": "express"})
 - db.tech.drop() // delete collection
 
+Importing and exporting data
+- export/import with bson
+mongodump --db meantest
+mongorestore --db meantest2 --gzip dump/meantest/
+
+- export/import with json
+mongoexport --db meantest --collection tech //print to console
+mongoexport --db meantest --collection tech --out MEAN/api/data/tech.json
+//export to a file, json representation of the database
+mongoexport --db meantest --collection tech --out MEAN/api/data/tech.json --jsonArray --pretty
