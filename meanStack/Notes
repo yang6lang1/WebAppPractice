@@ -33,6 +33,37 @@ Eg:
 then you can use 'npm start' to run 'node app.js'
 
 ***************************
+express
+***************************
+- the web application framework
+var app = express();
+app.set('port', 3000);
+app.get('port');
+var server = app.listen(3000, function() {
+    var port = server.adress().port;
+})
+
+// return string
+app.get('/', function(req, res) {
+    res.status(404).send('express yourself');
+});
+
+// return json
+res.status(200).json({
+    jsonData: true
+});
+
+// return file (html, js...)
+res.status(200).sendFile(path.join(__dirname, "app.js"));
+// __dirname represents current directory
+res.status(200).sendFile(path.join(__dirname, 'public', 'index.html'));
+
+- Serving static files from express
+- defining 'static' folder
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+***************************
 MongoDB
 ***************************
 
