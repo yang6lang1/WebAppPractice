@@ -8,6 +8,31 @@ NodeJS
 NodeJS is designed to address I/O scalability, not computational scalability
 
 ***************************
+NPM
+***************************
+- NPM is a package manager for node
+- Re-usable modules, packages and libraries
+- Move code between environments
+- manage dependency
+
+npm install express --save
+npm install mocha --save-dev
+
+Usually it is a good practice to keep node_modules dependencies away from git
+Only fetch during development
+To do that, with a package.json file, run   npm install
+
+How to install dependencies on a production server?
+npm install --production
+It only installs dependencies but will leave dev dependencies out
+
+package.json
+Using 'script' field, you can add/manage your own script
+Eg:
+"start" : "node app.js"
+then you can use 'npm start' to run 'node app.js'
+
+***************************
 MongoDB
 ***************************
 
