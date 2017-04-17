@@ -72,6 +72,25 @@ app.use('/css', function(req, res, next) {
 });
 
 - Express router
+- Using Contorller to define functionality
+- Express URL parameters
+    app.route('/hotels/:hotelId').get(callback);
+    req.params.[paramName]
+- Express URL query strings
+    req.query.[paramName]
+- How to deal with posted form  
+    middleware: body-parser
+    npm install --save body-parser
+    app.use(bodyParser.urlencoded({ extended : false }));
+    req.body
+
+- [BONUS] Nodemon
+    A utility that monitors you application files with changes and automatically restarts the
+    app when the file is changed
+    NEVER use in application, only for dev
+
+    Configure Nodemon
+    nodemon.json
 
 ***************************
 MongoDB
