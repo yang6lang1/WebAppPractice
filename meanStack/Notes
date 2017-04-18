@@ -180,3 +180,7 @@ mongoexport --db meantest --collection tech //print to console
 mongoexport --db meantest --collection tech --out MEAN/api/data/tech.json
 //export to a file, json representation of the database
 mongoexport --db meantest --collection tech --out MEAN/api/data/tech.json --jsonArray --pretty
+￼mongoimport --db mean2 --collection tech --jsonArray api/data/tech.json
+
+- install driver
+npm install mongodb --save //use --save flag to ensure we save that into our package.json

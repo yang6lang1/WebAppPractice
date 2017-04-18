@@ -1,3 +1,4 @@
+require('./api/data/dbconnection.js').open();
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
