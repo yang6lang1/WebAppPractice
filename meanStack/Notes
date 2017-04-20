@@ -98,6 +98,9 @@ MongoDB
 
 Introduction to NO-SQL database
 
+// Be able to use mongo shell in terminal
+export PATH=$PATH:/Users/guangyang/Downloads/mongodb/bin
+
 Types of NoSQL database:
 - key-value store
 - Document store (MongoDB)
@@ -184,3 +187,15 @@ mongoexport --db meantest --collection tech --out MEAN/api/data/tech.json --json
 
 - install driver
 npm install mongodb --save //use --save flag to ensure we save that into our package.json
+
+***************************
+REST API
+***************************
+GET     /api/hotels             Get all/multiple hotels
+POST    /api/hotels             Create a new hotel
+GET     /api/hotels/1234        Get a specific hotel
+PUT     /api/hotels/1234        Update a specific hotel
+DELETE  /api/hotels/1234        Delete a specific hotel
+
+- Why mongoose?
+data schemas

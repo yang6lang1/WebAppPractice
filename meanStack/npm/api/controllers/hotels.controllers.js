@@ -1,33 +1,60 @@
 var hotelData = require('../data/hotel-data.json');
 var dbconn = require('../data/dbconnection.js');
+// driver to help query mongo db id
+var ObjectId = require('mongodb').ObjectId;
 
 module.exports.hotelsGetALl = function(req, res) {
     var db = dbconn.get();
-    
-    console.log('GET the hotels');
-    console.log(req.query);
+    var collection = db.collection('hotels'); // => use hotels
+    // docs here is a circular structure
+    // var docs = collection.find(); // => db.hotels.find() blocking!!!
+    // non-blocking approach: using callback
+    // collection.find().toArray(function(err, data) {
+    //     res.status(200).json(data);  
+    // });
 
-    var offset = 0, count = 5;
+    var offset = 0;
+    var count = 5;
     if (req.query && req.query.offset) {
         offset = parseInt(req.query.offset, 10);
     }
     if (req.query && req.query.count) {
         count = parseInt(req.query.count, 10);
     }
-
-    var returnData = hotelData.slice(offset, offset + count);
-    res.status(200).json(returnData);
+    // offset => skip(), count => limit()
+    collection
+        .find()
+        .skip(offset)
+        .limit(count)
+        .toArray(function(err, data) {
+        res.status(200).json(data);  
+    });
 };
 
 module.exports.hotelsGetOne = function(req, res) {
+    var db = dbconn.get();
+    var collection = db.collection('hotels');
+
     var hotelId = req.params.hotelId;
-    var thisHotel = hotelData[hotelId];
     console.log('GET the hotel: ' + hotelId);
-    res.status(200).json(thisHotel);
+    collection.findOne({ _id: ObjectId(hotelId) }, function(err, data) {
+        res.status(200).json(data);
+    });
 };
 
 module.exports.hotelsAddOne = function(req, res) {
+    var db = dbconn.get();
+    var collection = db.collection('hotels');
+
     console.log('POST new hotel');
-    console.log(req.body);
-    res.status(200).json(req.body);
+    if (req.body && req.body.name && req.body.stars) {
+        var newHotel = req.body;
+        newHotel.stars = parseInt(req.body.stars, 10);
+        collection.insertOne(newHotel, function(err, response) {
+            console.log(response.ops);
+            res.status(201).json(response.ops); // 201 indicates a new resource has been createdz
+        });
+    } else {
+        res.status(400).json({ message: "Required data missing from body" });
+    }
 };
