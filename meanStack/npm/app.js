@@ -12,7 +12,9 @@ app.use(function(req, res, next) {
     next();
 });
 
+// Use public folder as static folder
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
 
 // extended set to false because in this app we only need string and arrays
 // set to true will expose more options
