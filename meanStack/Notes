@@ -199,3 +199,90 @@ DELETE  /api/hotels/1234        Delete a specific hotel
 
 - Why mongoose?
 data schemas
+
+
+***************************
+AngularJS
+***************************
+1. Include angular in the dependency
+2. Need to specify the root of the appilication by 'ng-app'
+    Eg: <html ng-app='meanhotel'>
+3. Expressions: {{variable}}
+4. Data binding with 'ng-model'
+    Eg:
+    <p> Hello, {{user}} </p>
+    <input type='text' name='' id='' ng-mode='user' >
+5. Need to be careful of the scope of 'ng-app'
+    Outside of the scope, any angular expressions won't work
+
+- Build-in directives
+    directives are DOM markers to tell angular to give certain behaviors to the DOM element
+1. ng-init:
+    ng-init is a good directive to intialize variables
+    Eg: 
+    <div ng-init="name = 'Alex'">
+        {{name}}
+    </div>
+2. {{}} is short for 'ng-bind'
+    Eg:
+    <p ng-bind="name"></p>
+3. ng-click
+    register a click event
+    Eg:
+    <div ng-init="number = 0">
+        <button ng-click="number = number + 1">+1</button>
+        <button ng-click="number = number - 1">-1</button>
+        <p> {{number}} </p>
+    </div>
+4. ng-if
+    if condition directive that can check the value of an ng-model variable
+    Eg:
+    <input type="checkbox" ng-model='isChecked'>
+    <p ng-if='isChecked'>Secrect message</p>
+5. ng-show
+    check whether to show the element similar to ng-if
+** ng-if vs ng-show **
+ng-if actually removes element from DOM tree
+ng-show adds 'display: none' to the element
+6. ng-clas
+    directive that can conditionally change css class of an element
+    Eg:
+    <input type="text" ng-model="guess" ng-class="{classOne: guess != number, classTwo: guess == number}">
+7. ng-repeat
+    iterate through list
+    Eg:
+    <div ng-init="numbers = [0,1,2,3,4,5,6,7]">
+        <ul>
+            <li ng-repeat="number in numbers" ng-class="{red: $even, green: $odd}">{{number}}</li>
+        </ul>
+    </div>
+** by default, ng-repeat tracks element by value, so it does not allow duplicates **
+Eg: following will fail
+    <div ng-init="names = ['Smith', 'Smith']">
+        <ul>
+            <li ng-repeat="name in names">{{name}}</li>
+        </ul>
+    </div>
+** Instead of tracking by value, we can track element by index **
+    <li ng-repeat="name in names track by $index">{{name}}</li>
+iterate through objects
+    <div ng-init="names = [{first: 'alex', last: 'yang'}, {first:'mimo',last:'jiang'}]">
+        <ul>
+            <li ng-repeat="name in names">{{name.first}} {{name.last}}</li>
+        </ul>
+    </div>
+8. ng-options
+    similar to ng-repeat, but populate items into select element (dropdown)
+    Eg:
+    <div ng-init="rebels = [
+                    {name: 'alex yang', age: 25, gender:'male'}, 
+                    {name: 'mimo jiang', age: 24, gender:'female'}
+                ]" >
+        <select name="" id="" ng-model="rebel" ng-options="rebel.gender for rebel in rebels"></select>
+        <p>You have selected {{rebel.name}}</p>
+    </div>
+    //Group by rebel.gender
+    //selected item goes int {{rebel}}
+9. ng-cloak
+    prevent browser flickering caused by angular js
+    for more details, see course 36
