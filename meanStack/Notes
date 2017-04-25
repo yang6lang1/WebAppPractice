@@ -286,3 +286,74 @@ iterate through objects
 9. ng-cloak
     prevent browser flickering caused by angular js
     for more details, see course 36
+
+- Build in filter:
+1. currency filter: currency
+    Eg:
+    {{variable | currency}}
+    <p> {{amount | currency:"$"}} </p>
+2. number filter: number
+    Eg:
+    <p> {{-amount | number: 4}}</p> //number precision
+3. string filter
+    uppercase, Eg: p> {{string | uppercase}}</p>
+    lowercase: .....
+    date:
+    Eg: 
+    <div ng-init="date = 1399648945000">
+        <p> {{date | date}}</p>
+    </div>
+    <p> {{date | date:'medium'}}</p> // short
+    <p> {{date | date:'yyyy - mm - dd'}}</p>
+    <p> {{date | date:'yyyy - MMMM - dd'}}</p>
+    <p> {{date | date:'yyyy - MMMM - dd (H:m)'}}</p>
+4. limit filter
+    <div ng-init="array = [0,1,2,3,4,5,6]">
+        <p> {{array | limitTo: -2}}</p>
+    </div> // will output [5,6] <--- last two element
+    <p> {{array | limitTo: 4}}</p> //output; [0,1,2,3]
+5. orderBy filter
+    <ul>
+      <li ng-repeat="rebel in rebels | orderBy: '-age'"> //reverse order by age
+        {{rebel.name}}--age: {{rebel.age}}--class: {{rebel.class}}
+      </li>
+    </ul>
+    <li ng-repeat="rebel in rebels | orderBy: 'name'"> //order by name
+    <<li ng-repeat="rebel in rebels | orderBy: ['class', '-age']"> //order by class then reverse age
+6. filter filter
+    <li ng-repeat="rebel in rebels | filter: 'al'"> // filter by substring on all variables
+    <input type="text" ng-model="search.name"></input> // filter on name variable
+    <li ng-repeat="rebel in rebels | filter: search">
+        {{rebel.name}}--age: {{rebel.age}}--class: {{rebel.class}}
+    </li> 
+    <input type="text" ng-model="search.$"></input> // $ means search for all
+
+- Controller
+    angular.module("myApp", []).controller("MyController", MyController);
+    function MyController($scope) {
+      $scope.name = 'Alex';
+    }
+    <div ng-controller="MyController">
+        <p>Hello {{ name }}</p>
+    </div>
+
+    $scope.increment = function() {
+        $scope.number++;
+    };
+    <button ng-click="increment()">+</button>
+
+** better practice is to use controllerAs syntax **
+function MyController() {
+    var vm = this;
+    vm.name = 'alex yang';
+}
+function MyController2() {
+    var vm = this;
+    vm.name = 'alex yang copy';
+};
+<div ng-controller='MyController as MyCtrl'">
+    {{MyCtrl.name}}
+    <div ng-controller='MyController2 as MyCtrl2'">
+        {{MyCtrl2.name}}
+    </div>                      
+</div>
