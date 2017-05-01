@@ -8,6 +8,11 @@ function MainController(FilmFactory) {
     })
 
     vm.name = 'Alex Yang';
+
+    vm.date1 = '12 February 2016';
+    vm.date2 = '11 March 2016';
+    vm.date3 = '03 January 2015';
+    vm.date4 = '25 April 2014';
 }
 
 function FilmController($routeParameters, FilmFactory) {

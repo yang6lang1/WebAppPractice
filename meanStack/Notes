@@ -361,4 +361,6 @@ function MyController2() {
 - Single Page Application (SPA)
 - Built-in services
 - Custom services, factory
-    angular.module('myApp'), factory('FilmFactory', FilmFactory);
+    angular.module('myApp').factory('FilmFactory', FilmFactory);
+
+- Custom filters

@@ -1,1 +1,6 @@
-<h1>hello</h1>
+<h1>hello, {{ vm.name | reverse }}</h1>
+
+<h1>hello, {{ vm.date1 | dateSuffix:arg1:arg2 }}</h1>
+<h1>hello, {{ vm.date2 | dateSuffix }}</h1>
+<h1>hello, {{ vm.date3 | dateSuffix }}</h1>
+<h1>hello, {{ vm.date4 | dateSuffix }}</h1>
