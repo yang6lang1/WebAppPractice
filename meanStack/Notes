@@ -200,6 +200,12 @@ DELETE  /api/hotels/1234        Delete a specific hotel
 - Why mongoose?
 data schemas
 
+Check mongodb running:
+ps -ax | grep -v grep | grep mongo
+
+Kill mongod process
+kill <process ID>
+
 
 ***************************
 AngularJS
