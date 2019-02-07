@@ -1,0 +1,98 @@
+Inizialize the project:
+    npm init -y
+
+------------------------
+Webpack: JS bundler
+------------------------
+Install webpack
+    npm i webpack --save-dev
+Install webpack-cli
+    npm i webpack-cli --save-dev
+
+Webpack for processing html: html-webpack plugin and html-loader:
+    npm i html-webpack-plugin html-loader --save-dev
+
+Webpack dev server: Once configured webpack will launch your application inside a browser.
+Also, every time you save a file after a modification webpack wev server will automagically refresh the browser’s window.
+    npm i webpack-dev-server --save-dev
+Webpack Dev Server will automagically refresh the window upon every modification to a file!
+
+
+
+------------------------
+Babel: ES6 transpiling, to make ES6 working for older browser
+------------------------
+Install Babel:
+    npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+
+
+
+------------------------
+React: A JavaScript library for building user interfaces
+------------------------
+Documentation: https://reactjs.org/docs/hello-world.html
+Install React/React-dom:
+    npm i react react-dom --save-dev
+Typechecking With PropTypes:
+    npm i prop-types --save-dev
+
+A stateful Ract component is a JS ES6 class. Every stateful React component carries its own state.
+
+------------------------
+Redux:
+------------------------
+Install Redux:
+    npm i redux --save-dev
+
+- it helps giving each React component the exact piece of state it needs.
+- Redux holds up the state within a single location.
+
+- Redux store: orchestrates all the moving parts in Redux. The states of the whole application lives inside the store.
+    the state in redux comes from reducers. reducers produce the state of your application
+    in Redux the state must return entirely from reducers
+- Reducer: A reducer is just a JavaScript function. A reducer takes two parameters: the current state and an action
+- Action: The second principle of Redux says the only way to change the state is by sending a signal to the store.
+    This signal is an action. “Dispatching an action” is the process of sending out a signal.
+    Every action needs a type property for describing how the state should change.
+    It is a best pratice to wrap every action within a function. Such function is an action creator.
+
+Redux API:
+- getState for accessing the current state of the application
+- dispatch for dispatching an action
+- subscribe for listening on state changes
+
+The subscribe method accepts a callback that will fire whenever an action is dispatched.
+    Dispatching an action means notifying the store that we want to change the state.
+    Eg: store.subscribe(() => console.log('Look ma, Redux!!'))
+
+
+
+------------------------
+Redux - React:
+------------------------
+react-redux is a Redux binding for React:
+    npm i react-redux --save-dev
+- mapStateToProps: it connects a part of the Redux state to the props of a React component
+- mapDispatchToProps: connects Redux actions to React props. This way a connected React component will be able to dispatch actions.
+
+
+------------------------
+create-react-app: Quickly create a new react app:
+------------------------
+Installing:
+    npm i -g create-react-app
+    create-react-app <app_name>
+
+------------------------
+Axios: get/post requests with ajax
+------------------------
+Install:
+    npm i -S axios
+
+------------------------
+Mongoose:
+------------------------
+------------------------
+ExpressJS
+------------------------
+    npm i -S mongoose express body-parser morgan
